@@ -11,6 +11,21 @@
 
 @implementation CSRSSFeedItem
 
+- (instancetype)initWithTitle:(NSString *)title
+                         link:(NSString *)link
+                  description:(NSString *)description
+                      pubDate:(nullable NSDate *)pubDate
+                      creator:(nullable NSString *)creator
+                    enclosure:(nullable CSRSSFeedItemEnclosure *)enclosure {
+    self = [super initWithTitle:title link:link description:description];
+    if (self) {
+        self.pubDate = pubDate;
+        self.creator = creator;
+        self.enclosure = enclosure;
+    }
+    return self;
+}
+
 - (instancetype)initWithXMLElement:(NSXMLElement *)element {
     self = [super initWithXMLElement:element];
     if ( self != nil ) {
